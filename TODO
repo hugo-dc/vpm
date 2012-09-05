@@ -1,0 +1,37 @@
+Next implementations are missing but is required
+
+ 1 - install packages
+ 2 - remove packages
+ 3 - configure packages
+ 4 - extract packages for inspection and edition
+ 5 - query package information from database 
+
+1 .- Install packages
+ This funtion will be take a pointer with a file name, then whill be 
+ test a file and is ok , the package will be installed. The option for
+ The argument for this option is "-i, --install"
+ 
+2 .- Remove packages
+ This function will be take a pointer with a package name, make a serch
+ on local databse for install test, then delete alll package content.
+ The argument for this option is "-r, --remove"
+ 
+3.- Configure packages.
+ The same of Remove packages, except taht instead file deletion, the funtion
+ will be execute a install files.
+ The argument for this option is "-c, --config"
+  
+4.- Extract Package
+ The function take a pointer to a package file and decompress in the 
+ same current directory
+ The argument for this option is "-e, --extract"
+ 
+5.- Query package
+ Query package information to a local database using params (rpm style)
+ The primary argument for this option is "-q, --query" , and a second
+ argument (charset) is needed. Ej,
+ 
+ vpm -qi - Query all installed packages 
+
+
+A this time only compress package with given directory is implemented.

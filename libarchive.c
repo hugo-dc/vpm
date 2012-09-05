@@ -21,13 +21,17 @@
  * 
  */
 
-#include <stdbool.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <archive.h>
 #include <archive_entry.h>
+#include <stdbool.h>
 #include "libarchive.h"
 
-bool parse_file_type(char* file)
+bool tar_file_format(char* file)
 {
+	struct archive *buf = archive_read_new();
+	
 	return(true);
 }
 

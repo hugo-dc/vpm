@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * common.c
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -21,36 +21,18 @@
  * 
  */
 
-#include <sys/stat.h>
+#include <stdio.h>
 #include <stdbool.h>
-#include "command.h"
+#include "common.h"
+#include "tools.h"
+#include "libarchive.h"
 
-bool test(int mode, char* target)
-{
-	/*
-	 * Modes :
-	 * 1 = TRUE if exist and is regular file
-	 * 2 = TRUE if exist and is directory
-	 */
-	 
-	struct stat buf;
-	int ret = stat(target,&buf);
-	
-	if ( ret == -1 )
+bool parse_package(char* pkg)
+{		
+	if(!test(1,pkg))
 		return(false);
 
-	switch(mode)
-	{
-		case 1 :
-			if (!S_ISREG(buf.st_mode))
-			return(false);
-			break;
-		case 2 :
-			if (!S_ISDIR(buf.st_mode))
-			return(false);
-			break;
-	}
+	tar_file_format(pkg);
 	
 	return(true);
 }
-

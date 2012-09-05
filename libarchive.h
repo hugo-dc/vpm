@@ -24,7 +24,7 @@
 #ifndef ARCHIVE_H_INCLUDED
 #define ARCHIVE_H_INCLUDED
 
-bool parse_file_type(char*);
+bool tar_file_format(char*);
 bool implode_data(char*);
 bool implode_package(char*);
 
