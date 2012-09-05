@@ -21,8 +21,13 @@
  * 
  */
 
+#include <libintl.h>
+#include <locale.h>
+
 #ifndef MESSAGES_H
 #define MESSAGES_H
+
+#define _(STRING)     gettext(STRING)
 
 void msg_help(void);
 

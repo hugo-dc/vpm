@@ -21,9 +21,13 @@
  * 
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
 #include "main.h"
 #include "messages.h"
 #include "list.h"
+#include "command.h"
 
 // Control variables
 char*  root    = "/";
@@ -86,7 +90,8 @@ int main(int argc, char **argv)
 		} else {
 			int i=0;
 			int c=1;
-
+			char* pkg = NULL;
+			
 			list_t* pkgv = new_list(c);
 			if (optind < argc && optind > 1)
 			{	
@@ -98,13 +103,20 @@ int main(int argc, char **argv)
 				}
 			}
 			int pkgc = size_list(pkgv);
-
+			
 			switch(action)
 			{
 				case 2 :
 					for (i=0; i<pkgc; i++)
 					{
-						printf("%s\n",get_list(pkgv,i));
+						pkg=(char*)get_list(pkgv,i);
+						
+						if(test(1,pkg))
+						{
+							printf("%s : True\n",pkg);
+						} else {
+							printf("%s : False\n",pkg);
+						}
 					}
 			}
 		}

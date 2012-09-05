@@ -24,24 +24,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <libintl.h>
-#include <locale.h>
-#include <getopt.h>
-#include <string.h>
-#include <linux/limits.h>
-#include <sys/stat.h>
-
-#define _(STRING)     gettext(STRING)
 #define VPM_HOME      "/var/vpm" 
 #define VPM_DATABASE  "/var/vpm/data/local/packages.db"
 
-// Program name
 char* progname;
-
-
 
 #endif
 
