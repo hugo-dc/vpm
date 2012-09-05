@@ -27,30 +27,32 @@
 #include "main.h"
 #include "messages.h"
 #include "list.h"
-#include "command.h"
+#include "tools.h"
 
 // Control variables
 char*  root    = "/";
-int verbose = 0;
-int silent  = 0;
-int rundeps = 1;
+unsigned short int verbose = 0;
+unsigned short int silent  = 0;
+unsigned short int rundeps = 1;
+unsigned short int stop    = 1;
 
 int main(int argc, char **argv)
 {
 	progname = argv[0];
 	
-	int action = 0;
-	int next_opt;
+	unsigned short int action = 0;
+	short int next_opt;
 	char* short_opts = "mhvs";
 	const struct option long_opts[] =
 	{
-		{"mkpkg",      1, NULL, 'm'},
+		{"mkpkg",      0, NULL, 'm'},
 		{"help",       0, NULL, 'h'},
 		{"verbose",    0, NULL, 'v'},
 		{"silent",     0, NULL, 's'},
+		{"nostop",     0, NULL,  0 },
 		{NULL,		   0, NULL,  0 }
 	};
-		
+	
 	while(1)
 	{
 		next_opt = getopt_long(argc, argv, short_opts, long_opts, NULL);
@@ -72,6 +74,9 @@ int main(int argc, char **argv)
 			case 's' :
 				verbose = 0;
 				silent = 1;
+				break;
+			case 0 :
+				stop = 0;
 				break;
 			case '?' :
 				exit(EXIT_FAILURE);
@@ -102,7 +107,7 @@ int main(int argc, char **argv)
 					c++;
 				}
 			}
-			int pkgc = size_list(pkgv);
+			size_t pkgc = size_list(pkgv);
 			
 			switch(action)
 			{
@@ -110,6 +115,7 @@ int main(int argc, char **argv)
 					for (i=0; i<pkgc; i++)
 					{
 						pkg=(char*)get_list(pkgv,i);
+						printf("%d\n",stop);
 						
 						if(test(1,pkg))
 						{

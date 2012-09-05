@@ -21,23 +21,9 @@
  * 
  */
 
-#include <stdio.h>
-#include "main.h"
-#include "messages.h"
+#ifndef COMMAND_H_INCLUDED
+#define COMMAND_H_INCLUDED
 
-void msg_help(void)
-{
-	printf(_(
-		"Vacteria Package Manager Copyright 2012\n"
-		"\n"
-		"Usage : \n"
-		" %s [arguments] [parameters]\n"
-		"\n"
-		"Arguments :\n"
-		" -m, --mkpkg     Compress given directory in a vpm package\n"
-		" -v, --verbose   Show much possible informative messages\n"
-		" -s, --silent    Only show fatal errors\n"
-		" -h, --help      Show this help and exit\n"
-		" --nostop        Try to continue even if errors exists\n"
-	),progname);
-}
+bool test(int, char*);
+
+#endif

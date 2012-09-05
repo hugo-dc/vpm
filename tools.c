@@ -21,23 +21,36 @@
  * 
  */
 
-#include <stdio.h>
-#include "main.h"
-#include "messages.h"
+#include <sys/stat.h>
+#include <stdbool.h>
+#include "tools.h"
 
-void msg_help(void)
+bool test(int mode, char* target)
 {
-	printf(_(
-		"Vacteria Package Manager Copyright 2012\n"
-		"\n"
-		"Usage : \n"
-		" %s [arguments] [parameters]\n"
-		"\n"
-		"Arguments :\n"
-		" -m, --mkpkg     Compress given directory in a vpm package\n"
-		" -v, --verbose   Show much possible informative messages\n"
-		" -s, --silent    Only show fatal errors\n"
-		" -h, --help      Show this help and exit\n"
-		" --nostop        Try to continue even if errors exists\n"
-	),progname);
+	/*
+	 * Modes :
+	 * 1 = TRUE if exist and is regular file
+	 * 2 = TRUE if exist and is directory
+	 */
+	 
+	struct stat buf;
+	int ret = stat(target,&buf);
+	
+	if ( ret == -1 )
+		return(false);
+
+	switch(mode)
+	{
+		case 1 :
+			if (!S_ISREG(buf.st_mode))
+			return(false);
+			break;
+		case 2 :
+			if (!S_ISDIR(buf.st_mode))
+			return(false);
+			break;
+	}
+	
+	return(true);
 }
+
