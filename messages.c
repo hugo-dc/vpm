@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * messages.c
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 

@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * main.c
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -28,6 +28,7 @@
 #include "messages.h"
 #include "list.h"
 #include "tools.h"
+#include "common.h"
 
 // Control variables
 char*  root    = "/";
@@ -115,16 +116,11 @@ int main(int argc, char **argv)
 					for (i=0; i<pkgc; i++)
 					{
 						pkg=(char*)get_list(pkgv,i);
-						printf("%d\n",stop);
-						
-						if(test(1,pkg))
-						{
-							printf("%s : True\n",pkg);
-						} else {
-							printf("%s : False\n",pkg);
-						}
+						parse_package(pkg);
 					}
 			}
+			
+			destroy_list(pkgv);
 		}
 	}
 	

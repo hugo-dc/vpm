@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * common.h
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -23,5 +23,7 @@
 
 #ifndef COMMON_H_INCLUDED
 #define COMMON_H_INCLUDED
+
+bool parse_package(char*);
 
 #endif

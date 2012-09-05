@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * tools.c
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -21,24 +21,45 @@
  * 
  */
 
-#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <linux/limits.h>
 #include "tools.h"
 
-bool test(int mode, char* target)
+bool test(unsigned short int mode, char* target)
 {
 	/*
 	 * Modes :
-	 * 1 = TRUE if exist and is regular file
-	 * 2 = TRUE if exist and is directory
+	 * 1 = TRUE if exist, have access R permissions and is a regular file
+	 * 2 = TRUE if exist, have access R permissions and is a directory
 	 */
-	 
-	struct stat buf;
-	int ret = stat(target,&buf);
 	
-	if ( ret == -1 )
+	
+	/*
+	* Firs get a full path of target. If file does not exist
+	* or have not permission for read them, then return error
+	*/
+	char fullpath[PATH_MAX+1];
+	realpath(target,fullpath);
+	if (fullpath == NULL)
+	{
+		perror(target);
 		return(false);
-
+	}
+	
+	/* Now, run stat() over full path file */
+	struct stat buf;
+	int ret = stat(fullpath,&buf);
+	if ( ret == -1 )
+	{
+		perror(target);
+		return(false);
+	}
+	
+	/* Evalue macros depending off mode */
 	switch(mode)
 	{
 		case 1 :
@@ -53,4 +74,3 @@ bool test(int mode, char* target)
 	
 	return(true);
 }
-

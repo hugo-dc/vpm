@@ -1,5 +1,5 @@
 /*
- * list.h
+ * libarchive.h
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -21,17 +21,11 @@
  * 
  */
 
-#ifndef LIST_H_INCLUDED
-#define LIST_H_INCLUDED
-#include <stddef.h>
-#include <stdbool.h>
+#ifndef ARCHIVE_H_INCLUDED
+#define ARCHIVE_H_INCLUDED
 
-typedef struct list list_t;
-list_t* new_list(size_t);
-bool add_list(list_t*, size_t, void*);
-size_t size_list(list_t*);
-void* get_list(list_t*, size_t);
-bool resize_list(list_t*, size_t);
-void destroy_list(list_t*);
-bool append_this(list_t*, void*);
+bool parse_file_type(char*);
+bool implode_data(char*);
+bool implode_package(char*);
+
 #endif

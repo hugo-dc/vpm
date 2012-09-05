@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * main.h
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -21,8 +21,8 @@
  * 
  */
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
 
 #define VPM_HOME      "/var/vpm" 
 #define VPM_DATABASE  "/var/vpm/data/local/packages.db"

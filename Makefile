@@ -4,8 +4,8 @@ DESTDIR =
 CC = gcc
 CFLAGS = -Wall -ggdb -larchive -lsqlite3
 
-all : messages.o tools.o list.o main.o
-	$(CC) -static messages.o tools.o list.o main.o -o vpm
+all : messages.o tools.o common.o libarchive.o list.o main.o
+	$(CC) -static messages.o tools.o common.o libarchive.o list.o main.o -o vpm
 
 clean :
 	rm -f *.o vpm

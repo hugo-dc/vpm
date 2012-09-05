@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * messages.h
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -24,8 +24,8 @@
 #include <libintl.h>
 #include <locale.h>
 
-#ifndef MESSAGES_H
-#define MESSAGES_H
+#ifndef MESSAGES_H_INCLUDED
+#define MESSAGES_H_INCLUDED
 
 #define _(STRING)     gettext(STRING)
 

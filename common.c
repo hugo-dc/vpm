@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * common.c
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -21,6 +21,16 @@
  * 
  */
 
-
+#include <stdio.h>
+#include <stdbool.h>
 #include "common.h"
+#include "tools.h"
+#include "libarchive.h"
 
+bool parse_package(char* pkg)
+{		
+	if(!test(1,pkg))
+		return(false);
+
+	return(true);
+}

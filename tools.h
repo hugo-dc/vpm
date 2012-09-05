@@ -1,5 +1,5 @@
 /*
- * sin título.c
+ * tools.h
  * 
  * Copyright 2012 Miguel Angel Reynoso <miguel@vacteria.org>
  * 
@@ -24,6 +24,7 @@
 #ifndef COMMAND_H_INCLUDED
 #define COMMAND_H_INCLUDED
 
-bool test(int, char*);
+bool test(unsigned short int, char*);
+
 
 #endif
