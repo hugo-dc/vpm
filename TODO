@@ -1,29 +1,29 @@
-Next implementations are missing but is required
+Next implementations are missing but required:
 
- 1 - install packages
- 2 - remove packages
- 3 - configure packages
- 4 - extract packages for inspection and edition
- 5 - query package information from database 
+ 1 - Install packages
+ 2 - Remove packages
+ 3 - Configure packages
+ 4 - Extract packages for inspection and edition
+ 5 - Query package information from database 
 
 1 .- Install packages
- This funtion will be take a pointer with a file name, then whill be 
- test a file and is ok , the package will be installed. The option for
- The argument for this option is "-i, --install"
+ This funtion will take a pointer with a file name, then will  
+ test a file and if the file is ok, the package will be installed. 
+ The argument for this option is "-i, --install".
  
 2 .- Remove packages
- This function will be take a pointer with a package name, make a serch
- on local databse for install test, then delete alll package content.
+ This function will take a pointer with the package name, make a serch
+ on local database for install test, then delete all package content.
  The argument for this option is "-r, --remove"
  
 3.- Configure packages.
- The same of Remove packages, except taht instead file deletion, the funtion
- will be execute a install files.
+ The same of Remove packages, except that instead file deletion, the funtion
+ will execute and install files.
  The argument for this option is "-c, --config"
   
 4.- Extract Package
- The function take a pointer to a package file and decompress in the 
- same current directory
+ The function take a pointer of a package file and decompress it in the 
+ same current directory.
  The argument for this option is "-e, --extract"
  
 5.- Query package
@@ -34,4 +34,4 @@ Next implementations are missing but is required
  vpm -qi - Query all installed packages 
 
 
-A this time only compress package with given directory is implemented.
+At this time only compress package with given directory is implemented.
